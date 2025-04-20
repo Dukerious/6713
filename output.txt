@@ -1,0 +1,18 @@
+Item 1:
+job_id: 30765949
+job_title: electrical bim modeller - contract role - sydney
+job_summary: multinational consultancy seeks electrical bim modeler for contract role in sydney
+job_ad_details: about the company multinational consultancy specializing in building services about the role my client is looking for an electrical bim modeler who is keen to work! duties project delivery drafting documentation work planning skills and experience revit drafting experience electrical experience attention to detail good verbal and written communication skills good time management skills building services culture my client is a market leader and therefore their culture is one of high performance and technical excellence. they reward employees greatly for the hard work and dedication that they need to put in in order to deliver successful projects. how to apply please submit a full professional resume highlighting your experience with electrical revit drafting or contact martyn durnford - +61 2 8079 0902 - for further information contract role multinational consultancey competitive rate
+classification_name: engineering
+subclassification_name: engineering drafting
+y_true: intermediate
+
+Item 2:
+job_id: 38536238
+job_title: marketing manager - tourism
+job_summary: a leading global lifestyle & entertainment group is now hiring for a proven marketing manager with a strong tourism and events background.
+job_ad_details: a true global leader in the lifestyle and entertainment industries, is seeking to hire an experienced and passionate marketing manager to join an established and high performing team in sydney's cbd. you will own and develop the strategic marketing direction for our client's high profile events on an international scale. a fantastic marketing opportunity that offers the successful applicant the opportunity to grow in a dynamic and fast paced organisation. the role develop and execute mid to long term national and global marketing plans, set the digital strategy with a view to reach and acquire the largest possible target audience cultivate media partnerships and explore new revenue partnerships via working with key marketing assets coach, lead and develop the team collect and report on all marketing activities and analytics lead and direct creative services agencies the ideal candidate at least 7 years of marketing management experience either from tourism marketing or an events background people management experience will be highly regarded genuine passion for the food & wine industry proven experience in running events and meeting ticketing targets open to travel in the region click through to apply or contact me | 02 9236 9063 the specialist recruitment group pty ltd is acting as an employment agency in relation to this vacancy.
+classification_name: marketing & communications
+subclassification_name: event management
+y_true: senior
+
