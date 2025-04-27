@@ -7,11 +7,9 @@ from datasets import Dataset
 csv_file_path = "dataset/cleaned_work_arrangements_development_set.csv"
 csv_file_path2 = "dataset/cleaned_work_arrangements_test_set.csv"
 # csv_file_path = "dataset/cleaned_salary_labelled_development_set.csv"    
-# 读取CSV文件
 
 def select_ytrue_candidate(df):
 
-    # 获取'y_true'列的唯一值
     unique_values = df['y_true'].unique()
     return unique_values
 
@@ -49,10 +47,8 @@ def convert_csv_to_traindataset(name):
     # 1. Read CSV
     df = pd.read_csv(name)
 
-    # 2. 获取 y_true（例如标签列名）
-    y_true = select_ytrue_candidate(df)  # 自定义函数，确保它返回的是 Series
+    y_true = select_ytrue_candidate(df) 
     
-    # 3. 构造 text_train 和 text_test（假设 build_prompt 返回的是元组）
     
     
     df['text'] = df.apply(lambda row: pd.Series(build_prompt(row, y_true, name)), axis=1)

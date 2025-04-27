@@ -31,47 +31,7 @@ def normalize(text):
     return text.lower().strip().replace("-", " ")
 
 def normalize(text):
-    """统一格式用于对比：小写、去空格、去破折号"""
     return text.lower().strip().replace("-", " ")
-
-# def compute_metrics(eval_preds, tokenizer=None):
-#     preds, labels = eval_preds
-#     preds = preds[:]
-#     print(preds.shape)
-#     print(labels.shape)
-#     # exit(1)
-#     # 有可能是 tensor，转成 list
-#     # preds = preds.tolist() if hasattr(preds, "tolist") else preds
-#     labels = labels.tolist() if hasattr(labels, "tolist") else labels
-
-#     # 解码
-#     # pred_strs = tokenizer.batch_decode(preds[0], skip_special_tokens=True)
-#     label_strs = tokenizer.batch_decode(labels, skip_special_tokens=True)
-    
-#     # print(pred_strs)
-#     print(label_strs)
-#     exit(1)
-
-#     # 计算准确率（忽略大小写和空格）
-#     correct = 0
-#     total = len(pred_strs)
-
-#     print("\n=== Example Predictions ===")
-#     for i, (p, l) in enumerate(zip(pred_strs, label_strs)):
-#         norm_p = normalize(p)
-#         norm_l = normalize(l)
-#         match = norm_p == norm_l
-#         correct += match
-
-#         # 打印前5条
-#         if i < 5:
-#             print(f"[{i}]")
-#             print(f"Prediction: {p.strip()}")
-#             print(f"Label     : {l.strip()}")
-#             print(f"{'✅ Correct' if match else '❌ Incorrect'}\n")
-
-#     acc = correct / total
-#     return {"accuracy": acc}
 
 
 
@@ -182,7 +142,7 @@ def train_model(args):
     # dataset = load_dataset(args.dataset_name, split="train")
     # print(dataset[0])
     # exit(1)
-    # dataset = dataset.select(range(100))  # ✅ 正确，保持 Dataset 类型
+    # dataset = dataset.select(range(100))  
     ##############################################################
     train_dataset, eval_dataset, labels = convert_csv_to_traindataset("dataset/cleaned_seniority_labelled_development_set.csv")
     
@@ -209,7 +169,7 @@ def train_model(args):
         optim=args.optim,
         # save_steps=args.save_steps,
         # logging_steps=args.logging_steps,
-        evaluation_strategy=args.evaluation_strategy,    # ✅ 每个 epoch 执行一次 eval
+        evaluation_strategy=args.evaluation_strategy,   
         save_strategy=args.save_strategy,
         logging_strategy=args.logging_strategy,
         num_train_epochs=args.num_train_epochs,
@@ -259,36 +219,6 @@ def train_model(args):
     
     
     
-    # merged_dir = os.path.join(args.output_dir, "final_merged_checkpoint")
-    # model = AutoModelForCausalLM.from_pretrained(
-    #     merged_dir,
-    #     torch_dtype=torch.bfloat16,
-    # ).to("cuda:0")  # 如果你有多个 GPU，指定一个 GPU
-    # tokenizer = AutoTokenizer.from_pretrained(merged_dir)  # 如果你把 tokenizer 也保存在那里
-    
-    
-    
-    # with torch.no_grad():
-    #     outputs = model.generate(**inputs)
-
-    # # 2. 把 Trainer 的 model 替换成新加载的 model
-    # trainer.model = model
-    # trainer.tokenizer = tokenizer
-
-    
-    # real_train = convert_csv_to_traindataset
-    # # 3. 评估训练集
-    # train_metrics = trainer.evaluate(
-    #     eval_dataset=trainer.train_dataset,   # 或者显式传入 train_dataset
-    # )
-    # print(">>> Train set metrics:", train_metrics)
-
-    # # 4. 评估测试集
-    # # 假设你已经有一个 HuggingFace Dataset 变量叫 test_dataset
-    # test_metrics = trainer.evaluate(
-    #     eval_dataset=test_dataset,
-    # )
-    # print(">>> Test set metrics:", test_metrics)
     
 if __name__ == "__main__":
     parser = HfArgumentParser(ScriptArguments)
